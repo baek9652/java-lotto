@@ -29,4 +29,12 @@ public class LottoTickets {
 
     return new LottoTickets(tickets);
   }
+
+  public Score getScore(WinningNumber winningNumber) {
+    Score score = new Score();
+    for (LottoTicket ticket : this.tickets) {
+      score.recordScore(ticket.numMatched(winningNumber));
+    }
+    return score;
+  }
 }

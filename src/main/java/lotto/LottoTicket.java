@@ -1,6 +1,7 @@
 package lotto;
 
 import static lotto.LottoGameConstant.NUMBERS_PER_TICKET;
+import static lotto.LottoGameConstant.NUM_WINNING_NUMBERS;
 
 import java.util.Collections;
 import java.util.List;
@@ -50,5 +51,13 @@ public class LottoTicket {
     builder.append(']');
 
     return builder.toString();
+  }
+
+  public int numMatched(WinningNumber winningNumber) {
+    int result = 0;
+    for (int i = 0; i < NUM_WINNING_NUMBERS; i++) {
+      result += this.lottoNumbers.contains(winningNumber.get(i)) ? 1 : 0;
+    }
+    return result;
   }
 }
