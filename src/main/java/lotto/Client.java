@@ -17,8 +17,8 @@ public class Client {
 
   public static void main(String[] args) {
     initializationPhase();
-    LottoTicketSetUpPhase();
-    WinningNumberSetUpPhase();
+    lottoTicketSetUpPhase();
+    winningNumberSetUpPhase();
     tearDownPhase();
   }
 
@@ -28,7 +28,7 @@ public class Client {
     budget = Budget.of(InputView.askBudget());
   }
 
-  private static void LottoTicketSetUpPhase() {
+  private static void lottoTicketSetUpPhase() {
     // 수동 희망 갯수 입력 받기
     int numManual = InputView.askNumManualLotto();
     budget.validateRequest(numManual);
@@ -49,7 +49,7 @@ public class Client {
     ResultView.printLottoInfo(dataExporter);
   }
 
-  private static void WinningNumberSetUpPhase() {
+  private static void winningNumberSetUpPhase() {
     winningNumber = WinningNumber.of(LottoNumberBundle.of(InputView.askWinningNumber()));
     winningNumber.addBonusNumber(LottoNumber.of(InputView.askBonusNumber()));
 
